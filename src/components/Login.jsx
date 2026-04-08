@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios'; 
 
 const Login = ({ onLoginSuccess }) => { 
-  // 1. Inicializamos con 'email' para que coincida con tu DTO de Java
   const [credentials, setCredentials] = useState({
     email: '',
     password: ''
@@ -21,7 +20,6 @@ const Login = ({ onLoginSuccess }) => {
     setError('');
     
     try {
-      // 2. Enviamos el objeto 'credentials' que ahora tiene { email, password }
       const response = await axios.post('http://localhost:8080/auth/login', credentials);
       
       console.log("Respuesta del servidor:", response.data);
@@ -29,8 +27,6 @@ const Login = ({ onLoginSuccess }) => {
       if (response.data.token) {
         localStorage.setItem('token', response.data.token);
 
-        // 3. Pasamos los datos al componente padre. 
-        // Usamos credentials.email porque username ya no existe en el estado.
         onLoginSuccess({
           name: credentials.email, 
           role: response.data.role
@@ -38,7 +34,6 @@ const Login = ({ onLoginSuccess }) => {
       }
     } catch (err) {
       console.error("Error de login:", err);
-      // Si el backend te da 403, caerá aquí
       setError('Credenciales inválidas o error de conexión');
     }
   };
