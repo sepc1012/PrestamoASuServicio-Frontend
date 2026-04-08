@@ -1,0 +1,52 @@
+# --- DEPENDENCIAS (Crucial para pnpm) ---
+node_modules/
+.pnpm-debug.log*
+
+# --- COMPILACIÓN / OUTPUT ---
+dist/
+dist-ssr/
+*.cache/
+.vite/
+
+# --- VARIABLES DE ENTORNO (Súper Importante) ---
+# Bloqueamos todos los archivos .env que contengan secretos reales
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# --- LOGS Y TEMPORALES ---
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# --- ARCHIVOS DE SISTEMA (Arch/Linux/macOS) ---
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+desktop.ini
+
+# --- EDITORES (Neovim & VSCode) ---
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.swo
+.netrwhist
+undo/
+
+# --- TESTEO ---
+coverage/
+__snapshots__/
+
+# --- INFRAESTRUCTURA (Si usas Docker en el front) ---
+.docker/
